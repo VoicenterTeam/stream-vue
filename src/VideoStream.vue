@@ -1,19 +1,9 @@
 <template>
-  <video ref="streamEl"/>
+  <video ref="streamEl" v-bind="computedProps" />
 </template>
 
 <script>
 import Hls from 'hls.js'
-
-const PROPS_TO_SYNC = [
-  'autoplay',
-  'controls',
-  'currentTime',
-  'muted',
-  'loop',
-  'volume',
-  'preload',
-]
 
 export default {
   name: 'VideoStream',
@@ -86,18 +76,21 @@ export default {
   mounted() {
     this.initPlayer()
   },
-  methods: {
-    updateProp(key, value) {
-      if (!this.$refs.streamEl) return
-
-      this.$refs.streamEl[key] = value
+    computed: {
+        computedProps () {
+            return {
+                autoplay: this.autoplay,
+                controls: this.controls,
+                muted: this.muted,
+                loop: this.loop,
+                preload: this.preload,
+                volume: this.volume
+            }
+        }
     },
+  methods: {
     initPlayer() {
       if (!this.$refs.streamEl) return
-
-      PROPS_TO_SYNC.forEach(prop => {
-        this.updateProp(prop, this[prop])
-      })
 
       this.hls = new Hls()
       this.hls.loadSource(`https://videodelivery.net/${this.videoId}/manifest/video.m3u8`)

@@ -1,6 +1,6 @@
 {
   "name": "@voicenter-team/stream-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A VueJS component for cloudflare streaming",
   "main": "dist/voicenter-team-stream-vue.ssr.js",
   "browser": "dist/voicenter-team-stream-vue.esm.js",

@@ -1,6 +1,6 @@
 {
   "name": "@voicenter-team/stream-vue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A VueJS component for cloudflare streaming",
   "main": "dist/voicenter-team-stream-vue.ssr.js",
   "browser": "dist/voicenter-team-stream-vue.esm.js",
@@ -26,7 +26,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "hls.js": "^1.1.5"
+    "hls.js": "^1.5.20"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
